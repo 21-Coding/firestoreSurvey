@@ -1,0 +1,40 @@
+1. create a react app 'name-of-project' command
+
+npx create-react-app project-name
+
+2. install latest version of react application 
+
+npm install --save-exact react-scripts@3.2.0
+
+3. Create components folder and moved App.js into the components
+
+mkdir src/components 
+src/components/App.js
+
+4. Create a Header.js file in the components folder 
+
+touch src/components/Header.js
+
+5. Create a SurveyList.js file in the components folder
+
+touch src/components/SurveyList.js
+
+6. Create a Survey.js file in the components folder
+
+touch src/components/Survey.js
+
+7.Add Props and PropTypes
+
+8. Create a NewSurveyForm.js in the components folder
+
+touch src/components/NewSurveyForm.js
+
+9. Create a SurveyControl.js in the components folder
+
+touch src/components/SurveyControl.js
+
+10. Accessing Props
+
+take props as an argument to the Survey components
+
+11. 
