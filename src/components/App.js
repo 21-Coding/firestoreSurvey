@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import SurveyList from "./SurveyList";
-import './App.css';
+import '../../src/App.css';
 
 function App() {
   return (
