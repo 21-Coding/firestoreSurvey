@@ -10,6 +10,8 @@ class SurveyControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      formVisibleOnPage: false,
+      masterSurveyList: [],
       selectedSurvey: null,
       editing: false
     };
