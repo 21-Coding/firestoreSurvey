@@ -44,6 +44,30 @@ class SurveyControl extends React.Component {
     this.setState({ selectedSurvey: selectedSurvey });
   }
 
+  handleDeletingSurvey = (id) => {
+    const newMasterTicketList = this.state.masterTicketList.filter(ticket => ticket.id !== id);
+    this.setState({
+      masterTicketList: newMasterTicketList,
+      selectedTicket: null
+    });
+  }
+
+  handleEditClick = () => {
+    this.setState({ editing: true });
+  }
+
+  handleEditingSurveyInList = (surveyToEdit) => {
+    const editedMasterSurveyList = this.state.masterSurveyList
+      .filter(survey => survey.id !== this.state.selectedSurvey.id)
+      .concat(surveyToEdit);
+    this.setState({
+      masterSurveyList: editedMasterSurveyList,
+      editing: false,
+      selectedSurvey: null
+    });
+  }
+
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -52,10 +76,10 @@ class SurveyControl extends React.Component {
       currentlyVisibleState =
         <SurveyDetail
           survey={this.state.selectedSurvey}
-        // onClickingDelete = {this.handleDeletingSurvey} 
-        // onClickingEdit = {this.handleEditClick} 
-        />
-      buttonText = "Return to Survey List";
+          onClickinDelete={this.handleDeletingSurvey}
+          onClickingEdit={this.handleEditClick} />
+
+      ttonText = "Return to Survey List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSurveyForm onNewSurveyCreation={this.handleAddingNewSurveyToList} />;
       buttonText = "Return to Survey List";
@@ -70,7 +94,8 @@ class SurveyControl extends React.Component {
       </React.Fragment>
     );
   }
-
 }
+
+
 
 export default SurveyControl;
