@@ -73,4 +73,4 @@ class SurveyControl extends React.Component {
 
 }
 
-exexport default SurveyControl;
+export default SurveyControl;
