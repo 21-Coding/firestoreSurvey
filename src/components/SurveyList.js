@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Survey from './Survey';
 
-function SurveyList() {
+function SurveyList(props) {
   return (
     <React.Fragment>
       <hr />
-      {surveys.map((survey) => {
-        return <Survey
+      {props.surveyList.map((survey) =>
+        <Survey
           whenSurveyClicked={props.onSurveySelection}
           title={survey.title}
           key={survey.id}
-          id={survey.id}
-        />
-      })}
+          id={survey.id} />
+      )}
     </React.Fragment>
   );
 }
 
 Survey.propTypes = {
+  surveyList: PropTypes.array,
   onSurveySelection: PropTypes.func
 };
 
