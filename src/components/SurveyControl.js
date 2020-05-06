@@ -2,11 +2,10 @@ import React from 'react';
 import NewSurveyForm from './NewSurveyForm';
 import SurveyList from './SurveyList';
 import SurveyDetail from './SurveyDetail';
-import EditSurveyForm from './EditSurveyForm';
+// import EditSurveyForm from './EditSurveyForm';
 
 
 class SurveyControl extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -45,10 +44,10 @@ class SurveyControl extends React.Component {
   }
 
   handleDeletingSurvey = (id) => {
-    const newMasterTicketList = this.state.masterTicketList.filter(ticket => ticket.id !== id);
+    const newMasterSurveyList = this.ListeningStateChangedEvent.masterSurveyList.filter(survey => survey.id !== id);
     this.setState({
-      masterTicketList: newMasterTicketList,
-      selectedTicket: null
+      masterSurveyList: newMasterSurveyList,
+      selectedSurvey: null
     });
   }
 
@@ -79,7 +78,7 @@ class SurveyControl extends React.Component {
           onClickinDelete={this.handleDeletingSurvey}
           onClickingEdit={this.handleEditClick} />
 
-      ttonText = "Return to Survey List";
+      buttonText = "Return to Survey List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSurveyForm onNewSurveyCreation={this.handleAddingNewSurveyToList} />;
       buttonText = "Return to Survey List";
@@ -95,7 +94,5 @@ class SurveyControl extends React.Component {
     );
   }
 }
-
-
 
 export default SurveyControl;
