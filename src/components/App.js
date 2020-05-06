@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from './Header';
-import SurveyList from "./SurveyList";
-import '../../src/App.css';
+// import SurveyList from "./SurveyList";
+import SurveyControl from './SurveyControl';
+// import '../../src/App.css';
 
 function App() {
   return (
