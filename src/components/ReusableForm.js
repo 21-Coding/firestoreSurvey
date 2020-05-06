@@ -10,7 +10,18 @@ function ReusableForm(props) {
           name='question1'
           placeholder='Enter your question here!'
         />
+        <textarea
+          name='answer'
+          placeholder='answer' />
+        <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
   );
 }
+
+ReusableForm.propTypes = {
+  formSubmissionHandler: PropTypes.func,
+  buttonText: PropTypes.string
+};
+
+export default ReusableForm;
