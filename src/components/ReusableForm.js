@@ -7,7 +7,10 @@ function ReusableForm(props) {
       <form onSubmit={props.formSubmissionHandler}>
         <input
           type='text'
-          name='title'
+          name='question1'
+          placeholder='Enter your question here!'
+        />
+      </form>
     </React.Fragment>
   );
 }
