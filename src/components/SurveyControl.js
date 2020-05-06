@@ -19,16 +19,43 @@ class SurveyControl extends React.Component {
 }
 
 handleClick = () => {
-  const { dispatch } = this.props;
-  const action = a.toggleForm();
-  dispatch(action);
-  this.setState({ selectedSurvey: null });
+  if (this.state.selectedSurvey != null) {
+    this.setState({
+      formVisibleOnPage: false,
+      selectedTicket: null,
+      editing: false
+    });
+  } else {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage,
+    }));
+  }
 }
 
-handleAddingNewSurveyToList = () => {
-  const { dispatch } = this.props;
-  const action = a.toggleForm();
-  dispatch(action);
+// handleClick = () => {
+//   const { dispatch } = this.props;
+//   const action = a.toggleForm();
+//   dispatch(action);
+//   this.setState({ selectedSurvey: null });
+// }
+
+handleAddingNewSurveyToList = (newSurvey) => {
+  const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
+  this.setState({
+    masterSurveyList: newMasterSurveyList,
+    formVisibleOnPage: false
+  });
+}
+
+// handleAddingNewSurveyToList = () => {
+//   const { dispatch } = this.props;
+//   const action = a.toggleForm();
+//   dispatch(action);
+// }
+
+handleChangingSelectedSurvey = (id) => {
+  const selectedSurvey = this.state.masterSurveyList.filter(ticket => ticket.id === id)[0];
+  this.setState({ selectedSurvey: selectedSurvey });
 }
 
 handleChangingSelectedSurvey = (id) => {
