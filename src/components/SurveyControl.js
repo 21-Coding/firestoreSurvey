@@ -45,7 +45,7 @@ class SurveyControl extends React.Component {
   }
 
   handleDeletingSurvey = (id) => {
-    const newMasterSurveyList = this.ListeningStateChangedEvent.masterSurveyList.filter(survey => survey.id !== id);
+    const newMasterSurveyList = this.state.masterSurveyList.filter(survey => survey.id !== id);
     this.setState({
       masterSurveyList: newMasterSurveyList,
       selectedSurvey: null
