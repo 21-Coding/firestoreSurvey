@@ -8,7 +8,12 @@ function EditSurveyForm(props) {
   function handleEditSurveyFormSubmission(event) {
     event.preventDefault();
     props.onEditSurvey({
-      title: event.target.title.value,
+      question1: event.target.question1.value,
+      response1: event.target.response1.value,
+      question2: event.target.question2.value,
+      response2: event.target.response2.value,
+      question3: event.target.question3.value,
+      response3: event.target.response3.value,
       id: survey.id
     });
   }

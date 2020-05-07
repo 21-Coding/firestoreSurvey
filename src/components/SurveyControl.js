@@ -55,7 +55,9 @@ class SurveyControl extends React.Component {
   }
 
   handleEditClick = () => {
-    this.setState({ editing: true });
+    this.setState({
+      editing: true
+    });
   }
 
   handleEditingSurveyInList = (surveyToEdit) => {
