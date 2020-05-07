@@ -21,7 +21,7 @@ class SurveyControl extends React.Component {
     if (this.state.selectedSurvey != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null,
+        selectedSurvey: null,
         editing: false
       });
     } else {
@@ -40,8 +40,10 @@ class SurveyControl extends React.Component {
   }
 
   handleChangingSelectedSurvey = (id) => {
-    const selectedSurvey = this.state.masterSurveyList.filter(ticket => ticket.id === id)[0];
-    this.setState({ selectedSurvey: selectedSurvey });
+    const selectedSurvey = this.state.masterSurveyList.filter(survey => survey.id === id)[0];
+    this.setState({
+      selectedSurvey: selectedSurvey
+    });
   }
 
   handleDeletingSurvey = (id) => {
@@ -85,7 +87,8 @@ class SurveyControl extends React.Component {
           onClickingEdit={this.handleEditClick} />
       buttonText = "Return to Survey List";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewSurveyForm onNewSurveyCreation={this.handleAddingNewSurveyToList} />;
+      currentlyVisibleState = <NewSurveyForm
+        onNewSurveyCreation={this.handleAddingNewSurveyToList} />;
       buttonText = "Return to Survey List";
     } else {
       currentlyVisibleState = <SurveyList surveyList={this.state.masterSurveyList} onSurveySelection={this.handleChangingSelectedSurvey} />;
