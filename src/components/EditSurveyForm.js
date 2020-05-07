@@ -7,7 +7,10 @@ function EditSurveyForm(props) {
 
   function handleEditSurveyFormSubmission(event) {
     event.preventDefault();
-    props.onEditSurvey({ title: event.target.title.value, id: survey.id });
+    props.onEditSurvey({
+      title: event.target.title.value,
+      id: survey.id
+    });
   }
 
   return (

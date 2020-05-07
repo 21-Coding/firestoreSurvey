@@ -2,10 +2,11 @@ import React from 'react';
 import NewSurveyForm from './NewSurveyForm';
 import SurveyList from './SurveyList';
 import SurveyDetail from './SurveyDetail';
-// import EditSurveyForm from './EditSurveyForm';
+import EditSurveyForm from './EditSurveyForm';
 
 
 class SurveyControl extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -71,13 +72,17 @@ class SurveyControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedSurvey != null) {
+    if (this.state.editing) {
+      currentlyVisibleState = <EditSurveyForm survey={this.state.selectedSurvey}
+        onEditSurvey={this.handleEditingSurveyInList} />
+      buttonText = "Return to Survey List";
+    }
+    else if (this.state.selectedSurvey != null) {
       currentlyVisibleState =
         <SurveyDetail
           survey={this.state.selectedSurvey}
-          onClickinDelete={this.handleDeletingSurvey}
+          onClickingDelete={this.handleDeletingSurvey}
           onClickingEdit={this.handleEditClick} />
-
       buttonText = "Return to Survey List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSurveyForm onNewSurveyCreation={this.handleAddingNewSurveyToList} />;

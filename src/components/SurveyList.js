@@ -9,7 +9,12 @@ function SurveyList(props) {
       {props.surveyList.map((survey) =>
         <Survey
           whenSurveyClicked={props.onSurveySelection}
-          title={survey.title}
+          question1={survey.question1}
+          response1={survey.response1}
+          question2={survey.question2}
+          response2={survey.response2}
+          question3={survey.question3}
+          response3={survey.response3}
           key={survey.id}
           id={survey.id} />
       )}

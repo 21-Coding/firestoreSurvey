@@ -8,9 +8,12 @@ function NewSurveyForm(props) {
   function handleNewSurveyFormSubmission(event) {
     event.preventDefault();
     props.onNewSurveyCreation({
-      title: event.target.title.value,
-
-
+      question1: event.target.question1.value,
+      response1: event.target.response1.value,
+      question2: event.target.question2.value,
+      response2: event.target.response2.value,
+      question3: event.target.question3.value,
+      response3: event.target.response3.value,
       id: v4()
     });
   }
@@ -25,7 +28,7 @@ function NewSurveyForm(props) {
 }
 
 NewSurveyForm.propTypes = {
-  onNewSurveyCreatioin: PropTypes.func
+  onNewSurveyCreation: PropTypes.func
 };
 
 export default NewSurveyForm;

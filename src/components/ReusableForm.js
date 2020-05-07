@@ -11,7 +11,7 @@ function ReusableForm(props) {
           placeholder='Enter your question here!'
         /><br />
         <textarea
-          name='answer'
+          name='response1'
           placeholder='answer' /><br />
         <input
           type='text'
@@ -19,7 +19,7 @@ function ReusableForm(props) {
           placeholder='Enter your question here!'
         /><br />
         <textarea
-          name='answer'
+          name='response2'
           placeholder='answer' /><br />
         <input
           type='text'
@@ -27,7 +27,7 @@ function ReusableForm(props) {
           placeholder='Enter your question here!'
         /><br />
         <textarea
-          name='answer'
+          name='response3'
           placeholder='answer' /><br />
         <button type='submit'>{props.buttonText}</button>
       </form>
