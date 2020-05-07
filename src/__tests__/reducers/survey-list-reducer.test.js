@@ -2,14 +2,25 @@ import surveyListReducer from '../../reducers/survey-list-reducer';
 import * as c from './../../actions/ActionTypes';
 
 describe('surveyListReducer', () => {
+
   let action;
-  const surveyData = {
-    1:
-    {
-      question1: 'Do you ride the bus tho work?',
+  const currentState = {
+    1: {
+      question1: 'Do you take the bus to work?',
       response1: 'No',
       id: 1
+    },
+    2: {
+      question1: 'Do you bike to work?',
+      response1: 'Yes',
+      id: 2
     }
+  }
+
+  const surveyData = {
+    question1: 'Do you ride the bus tho work?',
+    response1: 'No',
+    id: 1
   };
 
   test('Should return default state if there is no action type passed into the reducer', () => {
@@ -28,6 +39,19 @@ describe('surveyListReducer', () => {
         question1: question1,
         response1: response1,
         id: id
+      }
+    });
+  });
+  test('Should successfully delete a survey', () => {
+    action = {
+      type: c.DELETE_SURVEY,
+      id: 1
+    };
+    expect(surveyListReducer(currentState, action)).toEqual({
+      2: {
+        question1: 'Do you bike to work?',
+        response1: 'Yes',
+        id: 2
       }
     });
   });

@@ -11,6 +11,10 @@ export default (state = {}, action) => {
           id: id
         }
       });
+    case c.DELETE_SURVEY:
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
     default:
       return state;
   }
