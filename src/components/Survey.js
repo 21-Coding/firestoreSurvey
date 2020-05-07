@@ -16,6 +16,6 @@ Survey.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
   whenSurveyClicked: PropTypes.func,
-}
+};
 
 export default Survey;

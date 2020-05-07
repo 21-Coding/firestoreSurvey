@@ -17,7 +17,7 @@ function SurveyList(props) {
   );
 }
 
-Survey.propTypes = {
+SurveyList.propTypes = {
   surveyList: PropTypes.array,
   onSurveySelection: PropTypes.func
 };
